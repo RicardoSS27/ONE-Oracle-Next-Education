@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+<body>
+    <input type="number">
+    <button id = botão>Descubra o número</button>
+
+
+    <script>
+
+        function sorteia() {
+            return Math.round(Math.random() * 10);
+        }
+
+        function sorteiaNumero(quant) {
+            var numeroSorteado = [];
+            var numero = 1;
+            while (numero <= quant) {
+                numeroAleatorio = sorteia();
+                var achou = false;
+
+                if (numeroAleatorio !== 0) {
+                    for (var posicao = 0; posicao < numeroSorteado.length; posicao++) {
+
+                        if(numeroSorteado[posicao] == numeroAleatorio){
+                             achou = true;
+                             break;
+                        }
+
+                  }
+
+                  if (achou == false) {
+                        numeroSorteado.push(numeroAleatorio);
+                        numero++;
+                  }
+                }
+            }
+            return numeroSorteado;
+        }
+
+        var numeroSorteado = sorteiaNumero(3);
+        var input = document.querySelector("input");
+
+        function verificaNumero() {
+            for(var posicao = 0; posicao < numeroSorteado.length; posicao++) {
+
+                if(input.value == numeroSorteado[posicao]) {
+  
+                       alert("Você ACERTOU!");
+                       achou = true;
+                       break;
+                } 
+         }
+  
+         if(achou == false) {
+  
+                alert("Você ERROU!");
+         }
+  
+            input.value = "";
+            input.focus();
+        }
+
+        var button = document.querySelector("button");
+        button.onclick = verificaNumero;
+    </script> 
+</body>
+</html>
