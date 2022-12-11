@@ -23,10 +23,16 @@
         
         var totalFamiliares = parseInt(prompt("Quantidade de familiares?"));
         var numero = 1;
+        var totalIdades = 0;
 
         while (numero <= totalFamiliares) {
-            var idade = 0;
+            var idade = parseInt(prompt("Informe a idade de seu familiar: "));
+            var totalIdades = totalIdades + idade;
+            numero++;
         }
+
+        var mediaIdades = totalIdades/totalFamiliares;
+        document.write("A media das idades é " + mediaIdades);
         </script>
 </head>
 <body>
