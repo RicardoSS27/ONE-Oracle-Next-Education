@@ -14,15 +14,20 @@
 
     <script>
 
-        numeroSortedo = 5;
+        var numeroSortedo = [1 , 2 , 7];
         var input = document.querySelector("input");
 
         function verificaNumero() {
-            if (input.value == numeroSortedo) {
-                alert("Você ACERTOU!!");
-            } else {
-                alert("Você ERROU!!");
+            for (var posiçao = 0 ; posiçao < numeroSortedo.length ; posiçao++){
+                if (input.value == numeroSortedo[posiçao]) {
+                    alert("Você ACERTOU!!");
+                    break;
+                } else {
+                    alert("Você ERROU!!");
+                }
             }
+            input.value = "";
+            input.focus();
         }
 
         var button = document.querySelector("button");
